@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p -l type-check:watch start:dev",
-    "start:dev": "webpack-dev-server --config ./config/webpack/dev.js --open",
+    "analyze": "npm run clean && npm run type-check && webpack --config ./config/webpack/analyze.js",
     "build": "run-p -l type-check build:prod",
     "build:prod": "npm run clean && webpack --config ./config/webpack/prod.js",
-    "analyze": "npm run clean && npm run type-check && webpack --config ./config/webpack/analyze.js",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
+    "clean": "rimraf dist",
+    "start": "run-p -l type-check:watch start:dev",
+    "start:dev": "webpack-dev-server --config ./config/webpack/dev.js --open",
+    "start:e2e": "cypress open",
     "test": "jest -c ./config/test/jest.js --verbose",
+    "test:e2e": "npm run start -- start:e2e",
     "test:watch": "npm run test -- --watchAll -i",
-    "clean": "rimraf dist"
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "repository": {
     "type": "git",

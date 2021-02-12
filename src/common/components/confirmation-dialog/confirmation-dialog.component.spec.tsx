@@ -87,7 +87,7 @@ describe("ConfirmationDialogComponent", () => {
     expect(onAcceptSpy).toHaveBeenCalled();
   });
 
-  it("should trigger on cancel action when accept button is clicked", () => {
+  it("should trigger on cancel action when cancel button is clicked", () => {
     const onCancelSpy = jest.fn();
     const cancelButton = retrieveButtonFromDialog("cancel", onCancelSpy);
 

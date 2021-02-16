@@ -11,8 +11,10 @@
     "start": "run-p -l type-check:watch start:dev",
     "start:dev": "webpack-dev-server --config ./config/webpack/dev.js --open",
     "start:e2e": "cypress open",
+    "start:e2e:ci": "cypress run",
     "test": "jest -c ./config/test/jest.js --verbose",
     "test:e2e": "npm run start -- start:e2e",
+    "test:e2e:ci": "npm run start -- -r start:e2e:ci",
     "test:watch": "npm run test -- --watchAll -i",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
